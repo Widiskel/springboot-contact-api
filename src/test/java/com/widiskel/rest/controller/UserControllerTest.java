@@ -1,9 +1,13 @@
 package com.widiskel.rest.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.widiskel.rest.entity.User;
+import com.widiskel.rest.model.ApiRes;
+import com.widiskel.rest.model.auth.TokenResponse;
+import com.widiskel.rest.model.auth.UserLoginRequest;
+import com.widiskel.rest.model.auth.UserRegisterRequest;
+import com.widiskel.rest.repository.UserRepository;
 import com.widiskel.rest.security.BCrypt;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,14 +17,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.widiskel.rest.model.ApiRes;
-import com.widiskel.rest.model.auth.UserRegisterRequest;
-import com.widiskel.rest.repository.UserRepository;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -73,11 +72,7 @@ class UserControllerTest {
 
     @Test
     void testRegisterDuplicate() throws Exception {
-        User user = new User();
-        user.setName("Widiskel");
-        user.setUsername("widiskel");
-        user.setPassword(BCrypt.hashpw("12345678", BCrypt.gensalt()));
-        userRepository.save(user);
+        generateDummy();
 
         UserRegisterRequest request = new UserRegisterRequest();
         request.setName("Widiskel");
@@ -90,6 +85,64 @@ class UserControllerTest {
 
             assertNotNull(response.getErrors());
         });
+    }
+
+    @Test
+    void testLoginSuccess() throws Exception {
+        generateDummy();
+
+        UserLoginRequest request = new UserLoginRequest();
+        request.setUsername("widiskel");
+        request.setPassword("12345678");
+
+        mockMvc.perform(post("/api/auth/login").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(request))).andExpectAll(status().isOk()).andDo(result -> {
+            ApiRes<TokenResponse> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
+
+            assertNull(response.getErrors());
+            assertNotNull(response.getData().getToken());
+            assertNotNull(response.getData().getExpiredAt());
+        });
+    }
+
+    @Test
+    void testLoginUserNotFound() throws Exception {
+        generateDummy();
+
+        UserLoginRequest request = new UserLoginRequest();
+        request.setUsername("widiskeli");
+        request.setPassword("12345678");
+
+        mockMvc.perform(post("/api/auth/login").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(request))).andExpectAll(status().isUnauthorized()).andDo(result -> {
+            ApiRes<TokenResponse> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
+
+            assertNotNull(response.getErrors());
+        });
+    }
+
+    @Test
+    void testLoginUserWrongPassword() throws Exception {
+        generateDummy();
+
+        UserLoginRequest request = new UserLoginRequest();
+        request.setUsername("widiskel");
+        request.setPassword("12348398492");
+
+        mockMvc.perform(post("/api/auth/login").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(request))).andExpectAll(status().isUnauthorized()).andDo(result -> {
+            ApiRes<TokenResponse> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
+
+            assertNotNull(response.getErrors());
+        });
+    }
+
+    private void generateDummy(){
+        User user = new User();
+        user.setName("Widiskel");
+        user.setUsername("widiskel");
+        user.setPassword(BCrypt.hashpw("12345678", BCrypt.gensalt()));
+        userRepository.save(user);
     }
 
 }

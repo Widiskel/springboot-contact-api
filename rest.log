@@ -432,3 +432,123 @@
 2024-05-05T09:57:40.204+07:00  INFO 7761 --- [rest] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-05-05T09:57:40.210+07:00  INFO 7761 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown initiated...
 2024-05-05T09:57:40.228+07:00  INFO 7761 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown completed.
+2024-05-05T11:29:45.199+07:00  INFO 9317 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Starting UserControllerTest using Java 17.0.11 with PID 9317 (started by widiskel in /Users/widiskel/Project/rest)
+2024-05-05T11:29:45.201+07:00  INFO 9317 --- [rest] [main] c.w.rest.controller.UserControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2024-05-05T11:29:47.063+07:00  INFO 9317 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-05T11:29:47.149+07:00  INFO 9317 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 1 JPA repository interface.
+2024-05-05T11:29:48.222+07:00  INFO 9317 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Starting...
+2024-05-05T11:29:48.729+07:00  INFO 9317 --- [rest] [main] com.zaxxer.hikari.pool.HikariPool        : contact - Added connection com.mysql.cj.jdbc.ConnectionImpl@3dfe92ef
+2024-05-05T11:29:48.732+07:00  INFO 9317 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Start completed.
+2024-05-05T11:29:48.795+07:00  INFO 9317 --- [rest] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-05T11:29:48.845+07:00  INFO 9317 --- [rest] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-05T11:29:48.899+07:00  INFO 9317 --- [rest] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-05T11:29:49.175+07:00  INFO 9317 --- [rest] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-05T11:29:50.316+07:00  INFO 9317 --- [rest] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-05T11:29:50.320+07:00  INFO 9317 --- [rest] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:29:51.469+07:00  WARN 9317 --- [rest] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-05T11:29:52.963+07:00  INFO 9317 --- [rest] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-05T11:29:52.965+07:00  INFO 9317 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-05T11:29:52.981+07:00  INFO 9317 --- [rest] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-05T11:29:53.014+07:00  INFO 9317 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 49 ms
+2024-05-05T11:29:53.138+07:00  INFO 9317 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Started UserControllerTest in 8.575 seconds (process running for 10.572)
+2024-05-05T11:29:55.115+07:00 ERROR 9317 --- [rest] [main] c.w.rest.service.ValidationService       : Validation Error password: size must be between 8 and 20, password: must not be blank, name: must not be blank, username: must not be blank
+2024-05-05T11:29:55.667+07:00 ERROR 9317 --- [rest] [main] com.widiskel.rest.service.UserService    : Bad Request Error Username already registered
+2024-05-05T11:29:56.056+07:00  INFO 9317 --- [rest] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:29:56.059+07:00  INFO 9317 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown initiated...
+2024-05-05T11:29:56.075+07:00  INFO 9317 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown completed.
+2024-05-05T11:31:37.661+07:00  INFO 9433 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Starting UserControllerTest using Java 17.0.11 with PID 9433 (started by widiskel in /Users/widiskel/Project/rest)
+2024-05-05T11:31:37.663+07:00  INFO 9433 --- [rest] [main] c.w.rest.controller.UserControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2024-05-05T11:31:39.568+07:00  INFO 9433 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-05T11:31:39.655+07:00  INFO 9433 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 1 JPA repository interface.
+2024-05-05T11:31:41.003+07:00  INFO 9433 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Starting...
+2024-05-05T11:31:41.440+07:00  INFO 9433 --- [rest] [main] com.zaxxer.hikari.pool.HikariPool        : contact - Added connection com.mysql.cj.jdbc.ConnectionImpl@3dfe92ef
+2024-05-05T11:31:41.443+07:00  INFO 9433 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Start completed.
+2024-05-05T11:31:41.519+07:00  INFO 9433 --- [rest] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-05T11:31:41.592+07:00  INFO 9433 --- [rest] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-05T11:31:41.638+07:00  INFO 9433 --- [rest] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-05T11:31:42.016+07:00  INFO 9433 --- [rest] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-05T11:31:43.121+07:00  INFO 9433 --- [rest] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-05T11:31:43.127+07:00  INFO 9433 --- [rest] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:31:44.447+07:00  WARN 9433 --- [rest] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-05T11:31:46.344+07:00  INFO 9433 --- [rest] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-05T11:31:46.346+07:00  INFO 9433 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-05T11:31:46.367+07:00  INFO 9433 --- [rest] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-05T11:31:46.397+07:00  INFO 9433 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 49 ms
+2024-05-05T11:31:46.516+07:00  INFO 9433 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Started UserControllerTest in 9.497 seconds (process running for 11.551)
+2024-05-05T11:31:48.314+07:00 ERROR 9433 --- [rest] [main] c.w.rest.service.ValidationService       : Validation Error password: size must be between 8 and 20, username: must not be blank, name: must not be blank, password: must not be blank
+2024-05-05T11:31:48.847+07:00 ERROR 9433 --- [rest] [main] com.widiskel.rest.service.UserService    : Bad Request Error Username already registered
+2024-05-05T11:31:49.348+07:00  INFO 9433 --- [rest] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:31:49.351+07:00  INFO 9433 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown initiated...
+2024-05-05T11:31:49.368+07:00  INFO 9433 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown completed.
+2024-05-05T11:33:52.751+07:00  INFO 9473 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Starting UserControllerTest using Java 17.0.11 with PID 9473 (started by widiskel in /Users/widiskel/Project/rest)
+2024-05-05T11:33:52.752+07:00  INFO 9473 --- [rest] [main] c.w.rest.controller.UserControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2024-05-05T11:33:54.688+07:00  INFO 9473 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-05T11:33:54.771+07:00  INFO 9473 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 1 JPA repository interface.
+2024-05-05T11:33:55.895+07:00  INFO 9473 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Starting...
+2024-05-05T11:33:56.293+07:00  INFO 9473 --- [rest] [main] com.zaxxer.hikari.pool.HikariPool        : contact - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a2e1e52
+2024-05-05T11:33:56.295+07:00  INFO 9473 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Start completed.
+2024-05-05T11:33:56.360+07:00  INFO 9473 --- [rest] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-05T11:33:56.413+07:00  INFO 9473 --- [rest] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-05T11:33:56.460+07:00  INFO 9473 --- [rest] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-05T11:33:56.922+07:00  INFO 9473 --- [rest] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-05T11:33:58.005+07:00  INFO 9473 --- [rest] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-05T11:33:58.012+07:00  INFO 9473 --- [rest] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:33:59.204+07:00  WARN 9473 --- [rest] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-05T11:34:00.896+07:00  INFO 9473 --- [rest] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-05T11:34:00.897+07:00  INFO 9473 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-05T11:34:00.920+07:00  INFO 9473 --- [rest] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-05T11:34:00.945+07:00  INFO 9473 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 48 ms
+2024-05-05T11:34:01.072+07:00  INFO 9473 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Started UserControllerTest in 8.923 seconds (process running for 10.788)
+2024-05-05T11:34:02.788+07:00 ERROR 9473 --- [rest] [main] c.w.rest.service.ValidationService       : Validation Error password: must not be blank, password: size must be between 8 and 20, name: must not be blank, username: must not be blank
+2024-05-05T11:34:03.189+07:00 ERROR 9473 --- [rest] [main] com.widiskel.rest.service.UserService    : Bad Request Error Username already registered
+2024-05-05T11:34:03.691+07:00  INFO 9473 --- [rest] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:34:03.694+07:00  INFO 9473 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown initiated...
+2024-05-05T11:34:03.711+07:00  INFO 9473 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown completed.
+2024-05-05T11:34:47.252+07:00  INFO 9540 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Starting UserControllerTest using Java 17.0.11 with PID 9540 (started by widiskel in /Users/widiskel/Project/rest)
+2024-05-05T11:34:47.255+07:00  INFO 9540 --- [rest] [main] c.w.rest.controller.UserControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2024-05-05T11:34:49.117+07:00  INFO 9540 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-05T11:34:49.201+07:00  INFO 9540 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 1 JPA repository interface.
+2024-05-05T11:34:50.304+07:00  INFO 9540 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Starting...
+2024-05-05T11:34:50.712+07:00  INFO 9540 --- [rest] [main] com.zaxxer.hikari.pool.HikariPool        : contact - Added connection com.mysql.cj.jdbc.ConnectionImpl@6eeb29c0
+2024-05-05T11:34:50.715+07:00  INFO 9540 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Start completed.
+2024-05-05T11:34:50.772+07:00  INFO 9540 --- [rest] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-05T11:34:50.816+07:00  INFO 9540 --- [rest] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-05T11:34:50.854+07:00  INFO 9540 --- [rest] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-05T11:34:51.259+07:00  INFO 9540 --- [rest] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-05T11:34:52.360+07:00  INFO 9540 --- [rest] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-05T11:34:52.373+07:00  INFO 9540 --- [rest] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:34:53.486+07:00  WARN 9540 --- [rest] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-05T11:34:55.078+07:00  INFO 9540 --- [rest] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-05T11:34:55.080+07:00  INFO 9540 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-05T11:34:55.097+07:00  INFO 9540 --- [rest] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-05T11:34:55.128+07:00  INFO 9540 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 48 ms
+2024-05-05T11:34:55.243+07:00  INFO 9540 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Started UserControllerTest in 8.594 seconds (process running for 10.478)
+2024-05-05T11:34:57.111+07:00 ERROR 9540 --- [rest] [main] c.w.rest.service.ValidationService       : Validation Error password: size must be between 8 and 20, password: must not be blank, username: must not be blank, name: must not be blank
+2024-05-05T11:34:57.699+07:00 ERROR 9540 --- [rest] [main] com.widiskel.rest.service.UserService    : Bad Request Error Username already registered
+2024-05-05T11:34:58.191+07:00  INFO 9540 --- [rest] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:34:58.195+07:00  INFO 9540 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown initiated...
+2024-05-05T11:34:58.208+07:00  INFO 9540 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown completed.
+2024-05-05T11:35:55.955+07:00  INFO 9619 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Starting UserControllerTest using Java 17.0.11 with PID 9619 (started by widiskel in /Users/widiskel/Project/rest)
+2024-05-05T11:35:55.957+07:00  INFO 9619 --- [rest] [main] c.w.rest.controller.UserControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2024-05-05T11:35:57.784+07:00  INFO 9619 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-05T11:35:57.881+07:00  INFO 9619 --- [rest] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interface.
+2024-05-05T11:35:58.970+07:00  INFO 9619 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Starting...
+2024-05-05T11:35:59.390+07:00  INFO 9619 --- [rest] [main] com.zaxxer.hikari.pool.HikariPool        : contact - Added connection com.mysql.cj.jdbc.ConnectionImpl@674184d
+2024-05-05T11:35:59.393+07:00  INFO 9619 --- [rest] [main] com.zaxxer.hikari.HikariDataSource       : contact - Start completed.
+2024-05-05T11:35:59.455+07:00  INFO 9619 --- [rest] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-05T11:35:59.510+07:00  INFO 9619 --- [rest] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-05T11:35:59.561+07:00  INFO 9619 --- [rest] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-05T11:35:59.852+07:00  INFO 9619 --- [rest] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-05T11:36:00.919+07:00  INFO 9619 --- [rest] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-05T11:36:00.922+07:00  INFO 9619 --- [rest] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:36:02.157+07:00  WARN 9619 --- [rest] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-05T11:36:03.780+07:00  INFO 9619 --- [rest] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-05-05T11:36:03.782+07:00  INFO 9619 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-05-05T11:36:03.845+07:00  INFO 9619 --- [rest] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-05-05T11:36:03.928+07:00  INFO 9619 --- [rest] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 145 ms
+2024-05-05T11:36:04.064+07:00  INFO 9619 --- [rest] [main] c.w.rest.controller.UserControllerTest   : Started UserControllerTest in 8.735 seconds (process running for 10.604)
+2024-05-05T11:36:05.946+07:00 ERROR 9619 --- [rest] [main] c.w.rest.service.ValidationService       : Validation Error password: must not be blank, password: size must be between 8 and 20, name: must not be blank, username: must not be blank
+2024-05-05T11:36:06.491+07:00 ERROR 9619 --- [rest] [main] com.widiskel.rest.service.UserService    : Bad Request Error Username already registered
+2024-05-05T11:36:06.906+07:00  INFO 9619 --- [rest] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-05T11:36:06.910+07:00  INFO 9619 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown initiated...
+2024-05-05T11:36:06.923+07:00  INFO 9619 --- [rest] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : contact - Shutdown completed.

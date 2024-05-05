@@ -19,6 +19,6 @@ public class ErrorController {
 
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<ApiRes<String>> ResponseStatusException(ResponseStatusException exception) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiRes.<String>builder().rc("02").msg(exception.getReason()).errors(exception.getReason()).build());
+        return ResponseEntity.status(exception.getStatusCode()).body(ApiRes.<String>builder().rc("02").msg(exception.getReason()).errors(exception.getReason()).build());
     }
 }

@@ -1,7 +1,10 @@
 package com.widiskel.rest.controller;
 
 import com.widiskel.rest.model.ApiRes;
+import com.widiskel.rest.model.auth.TokenResponse;
+import com.widiskel.rest.model.auth.UserLoginRequest;
 import com.widiskel.rest.model.auth.UserRegisterRequest;
+import com.widiskel.rest.service.AuthService;
 import com.widiskel.rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,6 +18,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AuthService authService;
+
     @PostMapping(
             path = "api/auth/register",
             consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -25,4 +31,15 @@ public class UserController {
 
         return ApiRes.<String>builder().rc("00").msg("User Registered Successfully").build();
     }
+
+    @PostMapping(
+            path = "api/auth/login",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ApiRes<TokenResponse> login(@RequestBody UserLoginRequest request) {
+        TokenResponse res = authService.login(request);
+        return ApiRes.<TokenResponse>builder().rc("00").msg("Login Success").data(res).build();
+    }
+
 }
