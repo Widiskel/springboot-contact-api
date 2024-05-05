@@ -13,12 +13,12 @@ import org.springframework.web.server.ResponseStatusException;
 public class ErrorController {
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<ApiRes<String>> constraintViolationException(ConstraintViolationException exception){
+    public ResponseEntity<ApiRes<String>> constraintViolationException(ConstraintViolationException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiRes.<String>builder().rc("01").msg("Validation Error").errors(exception.getMessage()).build());
     }
 
     @ExceptionHandler(ResponseStatusException.class)
-    public ResponseEntity<ApiRes<String>> ResponseStatusException(ResponseStatusException exception){
+    public ResponseEntity<ApiRes<String>> ResponseStatusException(ResponseStatusException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiRes.<String>builder().rc("02").msg(exception.getReason()).errors(exception.getReason()).build());
     }
 }

@@ -20,7 +20,7 @@ public class UserController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ApiRes<String> register(@RequestBody UserRegisterRequest request){
+    public ApiRes<String> register(@RequestBody UserRegisterRequest request) {
         userService.register(request);
 
         return ApiRes.<String>builder().rc("00").msg("User Registered Successfully").build();

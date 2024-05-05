@@ -12,8 +12,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.widiskel.rest.model.ApiRes;
@@ -44,19 +46,13 @@ class UserControllerTest {
         request.setUsername("widiskel");
         request.setPassword("12345678");
 
-        mockMvc.perform(post("/api/auth/register")
-                .accept(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request)))
-                .andExpectAll(status().isOk())
-                .andDo(result -> {
-                    ApiRes<String> response = objectMapper.readValue(result.getResponse().getContentAsString(),
-                            new TypeReference<>() {
-                            });
+        mockMvc.perform(post("/api/auth/register").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(request))).andExpectAll(status().isOk()).andDo(result -> {
+            ApiRes<String> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
 
-                    assertEquals("User Registered Successfully", response.getMsg());
-                    assertEquals("00", response.getRc());
-                });
+            assertEquals("User Registered Successfully", response.getMsg());
+            assertEquals("00", response.getRc());
+        });
     }
 
     @Test
@@ -66,21 +62,16 @@ class UserControllerTest {
         request.setUsername("");
         request.setPassword("");
 
-        mockMvc.perform(post("/api/auth/register")
-                .accept(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request)))
-                .andExpectAll(status().isBadRequest())
-                .andDo(result -> {
-                    ApiRes<String> response = objectMapper.readValue(result.getResponse().getContentAsString(),
-                            new TypeReference<>() {
-                });
+        mockMvc.perform(post("/api/auth/register").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(request))).andExpectAll(status().isBadRequest()).andDo(result -> {
+            ApiRes<String> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
 
-                    assertEquals("Validation Error",response.getMsg());
-                    assertNotNull(response.getErrors());
-                });
+            assertEquals("Validation Error", response.getMsg());
+            assertNotNull(response.getErrors());
+        });
     }
-@Test
+
+    @Test
     void testRegisterDuplicate() throws Exception {
         User user = new User();
         user.setName("Widiskel");
@@ -93,18 +84,12 @@ class UserControllerTest {
         request.setUsername("widiskel");
         request.setPassword("12345678");
 
-        mockMvc.perform(post("/api/auth/register")
-                .accept(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(request)))
-                .andExpectAll(status().isBadRequest())
-                .andDo(result -> {
-                    ApiRes<String> response = objectMapper.readValue(result.getResponse().getContentAsString(),
-                            new TypeReference<>() {
-                });
+        mockMvc.perform(post("/api/auth/register").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(request))).andExpectAll(status().isBadRequest()).andDo(result -> {
+            ApiRes<String> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
 
-                    assertNotNull(response.getErrors());
-                });
+            assertNotNull(response.getErrors());
+        });
     }
 
 }
