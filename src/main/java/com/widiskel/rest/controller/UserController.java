@@ -1,16 +1,13 @@
 package com.widiskel.rest.controller;
 
+import com.widiskel.rest.entity.User;
 import com.widiskel.rest.model.ApiRes;
-import com.widiskel.rest.model.auth.TokenResponse;
-import com.widiskel.rest.model.auth.UserLoginRequest;
-import com.widiskel.rest.model.auth.UserRegisterRequest;
+import com.widiskel.rest.model.auth.*;
 import com.widiskel.rest.service.AuthService;
 import com.widiskel.rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -42,4 +39,22 @@ public class UserController {
         return ApiRes.<TokenResponse>builder().rc("00").msg("Login Success").data(res).build();
     }
 
+    @GetMapping(
+            path = "api/auth/user",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ApiRes<UserResponse> user(User user) {
+        UserResponse res = userService.getUser(user);
+        return ApiRes.<UserResponse>builder().rc("00").msg("Success").data(res).build();
+    }
+
+    @PostMapping(
+            path = "api/auth/user",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ApiRes<UserResponse> login(User user,@RequestBody UserUpdateRequest request) {
+        UserResponse res = userService.updateUser(user,request);
+        return ApiRes.<UserResponse>builder().rc("00").msg("Success").data(res).build();
+    }
 }

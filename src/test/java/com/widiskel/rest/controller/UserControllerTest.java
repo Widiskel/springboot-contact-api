@@ -4,9 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.widiskel.rest.entity.User;
 import com.widiskel.rest.model.ApiRes;
-import com.widiskel.rest.model.auth.TokenResponse;
-import com.widiskel.rest.model.auth.UserLoginRequest;
-import com.widiskel.rest.model.auth.UserRegisterRequest;
+import com.widiskel.rest.model.auth.*;
 import com.widiskel.rest.repository.UserRepository;
 import com.widiskel.rest.security.BCrypt;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -137,10 +136,50 @@ class UserControllerTest {
         });
     }
 
-    private void generateDummy(){
+    @Test
+    void getUnauthorizedUser() throws Exception {
+        mockMvc.perform(get("/api/auth/user").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).header("X-API-TOKEN","notfound")).andExpectAll(status().isUnauthorized()).andDo(result -> {
+            ApiRes<String> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
+
+            assertNotNull(response.getErrors());
+        });
+    }
+
+    @Test
+    void getAuthorizedUser() throws Exception {
+        generateDummy();
+        mockMvc.perform(get("/api/auth/user").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).header("X-API-TOKEN","lkasjdklajsflkjasf")).andExpectAll(status().isOk()).andDo(result -> {
+            ApiRes<UserResponse> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
+
+            assertNotNull(response.getData());
+        });
+    }
+
+    @Test
+    void updateAuthorizedUser() throws Exception {
+        generateDummy();
+
+        UserUpdateRequest request = new UserUpdateRequest();
+        request.setName("Widi Saputra");
+        request.setPassword("12345678");
+
+        mockMvc.perform(post("/api/auth/user").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(request)).header("X-API-TOKEN","lkasjdklajsflkjasf")).andExpectAll(status().isOk()).andDo(result -> {
+            ApiRes<UserResponse> response = objectMapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {
+            });
+
+            assertNotNull(response.getData());
+            assertEquals("Widi Saputra",response.getData().getName());
+        });
+    }
+
+    private void generateDummy() {
         User user = new User();
         user.setName("Widiskel");
         user.setUsername("widiskel");
+        user.setToken("lkasjdklajsflkjasf");
+        user.setTokenExpiredAt(System.currentTimeMillis()+100000000L);
         user.setPassword(BCrypt.hashpw("12345678", BCrypt.gensalt()));
         userRepository.save(user);
     }
