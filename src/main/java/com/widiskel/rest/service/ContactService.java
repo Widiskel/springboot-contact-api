@@ -131,5 +131,15 @@ public class ContactService {
         }
     }
 
+    @Transactional
+    public void deleteContact(User user, int id) {
+        Optional<Contact> contact = contactRepository.findContactById(BigInteger.valueOf(id));
+        if (contact.isPresent()) {
+            contactRepository.delete(contact.get());
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contact not found");
+        }
+    }
+
 
 }

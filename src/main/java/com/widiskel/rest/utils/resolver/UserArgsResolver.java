@@ -1,4 +1,4 @@
-package com.widiskel.rest.resolver;
+package com.widiskel.rest.utils.resolver;
 
 import com.widiskel.rest.entity.User;
 import com.widiskel.rest.repository.UserRepository;

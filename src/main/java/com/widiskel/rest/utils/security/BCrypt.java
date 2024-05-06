@@ -1,4 +1,4 @@
-package com.widiskel.rest.security;
+package com.widiskel.rest.utils.security;
 
 // Copyright (c) 2006 Damien Miller <djm@mindrot.org>
 //

@@ -5,7 +5,7 @@ import com.widiskel.rest.model.auth.UserRegisterRequest;
 import com.widiskel.rest.model.auth.UserResponse;
 import com.widiskel.rest.model.auth.UserUpdateRequest;
 import com.widiskel.rest.repository.UserRepository;
-import com.widiskel.rest.security.BCrypt;
+import com.widiskel.rest.utils.security.BCrypt;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

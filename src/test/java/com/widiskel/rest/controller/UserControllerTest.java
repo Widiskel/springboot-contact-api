@@ -6,7 +6,7 @@ import com.widiskel.rest.entity.User;
 import com.widiskel.rest.model.ApiRes;
 import com.widiskel.rest.model.auth.*;
 import com.widiskel.rest.repository.UserRepository;
-import com.widiskel.rest.security.BCrypt;
+import com.widiskel.rest.utils.security.BCrypt;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

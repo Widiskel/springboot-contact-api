@@ -1,6 +1,5 @@
 package com.widiskel.rest.controller;
 
-
 import com.widiskel.rest.model.ApiRes;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,6 @@ public class ErrorController {
     public ResponseEntity<ApiRes<String>> constraintViolationException(ConstraintViolationException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiRes.<String>builder().rc("01").msg("Validation Error").errors(exception.getMessage()).build());
     }
-
     @ExceptionHandler(ResponseStatusException.class)
     public ResponseEntity<ApiRes<String>> ResponseStatusException(ResponseStatusException exception) {
         return ResponseEntity.status(exception.getStatusCode()).body(ApiRes.<String>builder().rc("02").msg(exception.getReason()).errors(exception.getReason()).build());

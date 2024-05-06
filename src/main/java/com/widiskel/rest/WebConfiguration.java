@@ -1,6 +1,6 @@
 package com.widiskel.rest;
 
-import com.widiskel.rest.resolver.UserArgsResolver;
+import com.widiskel.rest.utils.resolver.UserArgsResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;

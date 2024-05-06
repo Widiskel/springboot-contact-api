@@ -60,5 +60,15 @@ public class ContactController {
         return ApiRes.<ContactResponse>builder().rc("00").msg("Success").data(res).build();
     }
 
+    @DeleteMapping(
+            path = "api/contact/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ApiRes<String> deleteContact(User user, @PathVariable int id) {
+        contactService.deleteContact(user,id);
+
+        return ApiRes.<String>builder().rc("00").msg("Success").data("Contact Deleted").build();
+    }
+
 
 }
