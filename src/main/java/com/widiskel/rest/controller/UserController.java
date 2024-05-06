@@ -57,4 +57,13 @@ public class UserController {
         UserResponse res = userService.updateUser(user,request);
         return ApiRes.<UserResponse>builder().rc("00").msg("Success").data(res).build();
     }
+
+    @DeleteMapping(
+            path = "api/auth/logout",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ApiRes<String> logout(User user) {
+        userService.logout(user);
+        return ApiRes.<String>builder().rc("00").msg("Success").data("Successfully Logout").build();
+    }
 }

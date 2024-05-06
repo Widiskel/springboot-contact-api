@@ -61,4 +61,11 @@ public class UserService {
 
         return UserResponse.builder().name(user.getName()).username(user.getUsername()).build();
     }
+
+    @Transactional
+    public void logout(User user){
+        user.setToken(null);
+        user.setTokenExpiredAt(null);
+        userRepository.save(user);
+    }
 }
